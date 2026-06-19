@@ -1,0 +1,1722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crystal × Concept 5 — The Adaptive K-Beauty Foundation · Production Blueprint</title>
+<style>
+  :root {
+    --gold: #C9A86C;
+    --gold-light: #E8D5A3;
+    --gold-pale: #F5EDD8;
+    --ink: #1A1512;
+    --ink-soft: #3D3028;
+    --ink-muted: #6B5B4E;
+    --cream: #FAF6EF;
+    --cream-mid: #F2EAD9;
+    --cream-dark: #E8DCC8;
+    --accent-rose: #C4846A;
+    --accent-sage: #7A8C72;
+    --accent-mauve: #9E7D8A;
+    --border: rgba(201,168,108,0.25);
+    --border-strong: rgba(201,168,108,0.55);
+    --shadow: 0 4px 32px rgba(26,21,18,0.10);
+    --shadow-card: 0 2px 16px rgba(26,21,18,0.08);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Georgia', 'Times New Roman', serif;
+    line-height: 1.65;
+    font-size: 15px;
+  }
+
+  /* ─── COVER ─── */
+  .cover {
+    background: var(--ink);
+    color: var(--gold-pale);
+    padding: 72px 48px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(201,168,108,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cover-eyebrow {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+  }
+  .cover-title {
+    font-size: clamp(28px, 5vw, 52px);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    color: var(--gold-pale);
+  }
+  .cover-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .cover-sub {
+    font-size: 14px;
+    color: rgba(245,237,216,0.6);
+    letter-spacing: 0.12em;
+    margin-bottom: 48px;
+    font-family: 'Courier New', monospace;
+    text-transform: uppercase;
+  }
+  .cover-meta {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+  .cover-meta-item {
+    text-align: center;
+  }
+  .cover-meta-label {
+    font-family: 'Courier New', monospace;
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .cover-meta-value {
+    font-size: 16px;
+    color: var(--gold-pale);
+  }
+
+  /* ─── LAYOUT ─── */
+  .document {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ─── SECTION ─── */
+  .section {
+    margin-top: 64px;
+  }
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    border-bottom: 1px solid var(--border-strong);
+    padding-bottom: 14px;
+    margin-bottom: 32px;
+  }
+  .section-number {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .section-title {
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .section-title em {
+    font-style: italic;
+    color: var(--ink-muted);
+  }
+
+  /* ─── CARDS ─── */
+  .card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 24px 28px;
+    box-shadow: var(--shadow-card);
+    margin-bottom: 16px;
+  }
+  .card-title {
+    font-family: 'Courier New', monospace;
+    font-size: 9px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .card-body {
+    color: var(--ink-soft);
+    font-size: 14.5px;
+    line-height: 1.7;
+  }
+
+  /* ─── GRID ─── */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 680px) {
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  }
+
+  /* ─── SCENE CARDS ─── */
+  .scene {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    background: #fff;
+    box-shadow: var(--shadow-card);
+  }
+  .scene-header {
+    background: var(--ink);
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .scene-number {
+    font-family: 'Courier New', monospace;
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+  .scene-title {
+    color: var(--gold-pale);
+    font-size: 15px;
+    font-weight: 400;
+  }
+  .scene-tc {
+    margin-left: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    color: var(--gold);
+    background: rgba(201,168,108,0.12);
+    padding: 3px 10px;
+    border-radius: 2px;
+    border: 1px solid rgba(201,168,108,0.3);
+  }
+  .scene-body {
+    padding: 24px 28px;
+  }
+  .scene-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  @media (max-width: 640px) {
+    .scene-cols { grid-template-columns: 1fr; }
+    .scene-header { flex-wrap: wrap; }
+    .scene-tc { margin-left: 0; }
+  }
+  .scene-col-label {
+    font-family: 'Courier New', monospace;
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+    display: block;
+  }
+  .scene-col-body {
+    color: var(--ink-soft);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .dialogue {
+    background: var(--ink);
+    color: var(--gold-pale);
+    border-left: 3px solid var(--gold);
+    padding: 14px 18px;
+    border-radius: 0 3px 3px 0;
+    font-style: italic;
+    font-size: 14px;
+    line-height: 1.65;
+    margin-top: 14px;
+  }
+  .dialogue-attr {
+    display: block;
+    font-style: normal;
+    font-family: 'Courier New', monospace;
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    margin-top: 8px;
+    text-transform: uppercase;
+  }
+
+  /* ─── OVERLAYS / TEXT CARDS ─── */
+  .overlay-tag {
+    display: inline-block;
+    background: var(--ink);
+    color: var(--gold-pale);
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    padding: 4px 10px;
+    border-radius: 2px;
+    margin: 3px 4px 3px 0;
+    border: 1px solid rgba(201,168,108,0.3);
+  }
+
+  /* ─── RETENTION MAP ─── */
+  .retention-row {
+    display: grid;
+    grid-template-columns: 80px 80px 1fr 120px;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+    align-items: stretch;
+  }
+  .retention-row:last-child { border-bottom: none; }
+  .retention-row.header {
+    background: var(--ink);
+  }
+  .retention-cell {
+    padding: 12px 16px;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    border-right: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+  }
+  .retention-cell:last-child { border-right: none; }
+  .retention-row.header .retention-cell {
+    font-family: 'Courier New', monospace;
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border-right-color: rgba(201,168,108,0.2);
+  }
+  .bar-wrap {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0;
+  }
+  .bar {
+    height: 8px;
+    background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
+    border-radius: 4px;
+    flex-shrink: 0;
+    transition: width 0.3s;
+  }
+  .bar-label {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    color: var(--ink-muted);
+    flex-shrink: 0;
+  }
+  .hook-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-family: 'Courier New', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .hook-curiosity { background: rgba(196,132,106,0.15); color: var(--accent-rose); border: 1px solid rgba(196,132,106,0.3); }
+  .hook-status   { background: rgba(122,140,114,0.15); color: var(--accent-sage); border: 1px solid rgba(122,140,114,0.3); }
+  .hook-loss     { background: rgba(158,125,138,0.15); color: var(--accent-mauve); border: 1px solid rgba(158,125,138,0.3); }
+  .hook-authority{ background: rgba(201,168,108,0.15); color: var(--gold); border: 1px solid rgba(201,168,108,0.3); }
+  .hook-proof    { background: rgba(26,21,18,0.08); color: var(--ink-muted); border: 1px solid rgba(26,21,18,0.15); }
+  .hook-fomo     { background: rgba(196,132,106,0.20); color: var(--accent-rose); border: 1px solid rgba(196,132,106,0.4); }
+
+  @media (max-width: 680px) {
+    .retention-row { grid-template-columns: 60px 1fr 90px; }
+    .retention-cell:nth-child(2) { display: none; }
+  }
+
+  /* ─── VOICE TABLE ─── */
+  .voice-row {
+    display: grid;
+    grid-template-columns: 26px 1fr 140px 100px;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+    align-items: stretch;
+  }
+  .voice-row.header { background: var(--ink); }
+  .voice-cell {
+    padding: 13px 16px;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    border-right: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .voice-cell:last-child { border-right: none; }
+  .voice-row.header .voice-cell {
+    font-family: 'Courier New', monospace;
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border-right-color: rgba(201,168,108,0.2);
+    align-items: center;
+  }
+  .line-number {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    color: var(--gold);
+    font-weight: 700;
+  }
+  .voice-line {
+    font-style: italic;
+    color: var(--ink);
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+  .voice-note {
+    font-size: 12px;
+    color: var(--ink-muted);
+  }
+  .vol-pill {
+    display: inline-block;
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    padding: 2px 7px;
+    border-radius: 2px;
+    background: var(--cream-mid);
+    border: 1px solid var(--border);
+    color: var(--ink-muted);
+    margin-bottom: 4px;
+  }
+  .pace-pill {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    color: var(--ink-muted);
+  }
+
+  @media (max-width: 680px) {
+    .voice-row { grid-template-columns: 26px 1fr; }
+    .voice-cell:nth-child(3), .voice-cell:nth-child(4) { display: none; }
+  }
+
+  /* ─── DETAIL BULLETS ─── */
+  .detail-list {
+    list-style: none;
+    padding: 0;
+  }
+  .detail-list li {
+    padding: 8px 0 8px 20px;
+    position: relative;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    border-bottom: 1px solid var(--border);
+    line-height: 1.6;
+  }
+  .detail-list li:last-child { border-bottom: none; }
+  .detail-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 12px;
+  }
+  .detail-list li strong {
+    color: var(--ink);
+    font-style: normal;
+  }
+
+  /* ─── EDITING TIMELINE ─── */
+  .timeline {
+    position: relative;
+    padding-left: 32px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(180deg, var(--gold) 0%, var(--border) 100%);
+  }
+  .tl-event {
+    position: relative;
+    margin-bottom: 20px;
+    padding: 14px 18px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    box-shadow: var(--shadow-card);
+  }
+  .tl-event::before {
+    content: '';
+    position: absolute;
+    left: -28px;
+    top: 18px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid var(--cream);
+    box-shadow: 0 0 0 2px var(--gold);
+  }
+  .tl-tc {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    color: var(--gold);
+    margin-bottom: 4px;
+    display: block;
+  }
+  .tl-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .tl-desc {
+    font-size: 13.5px;
+    color: var(--ink-muted);
+    line-height: 1.6;
+  }
+
+  /* ─── CTA CARDS ─── */
+  .cta-card {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: var(--shadow-card);
+  }
+  .cta-header {
+    background: var(--gold);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .cta-type {
+    font-family: 'Courier New', monospace;
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .cta-timing {
+    margin-left: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    color: var(--ink-soft);
+    background: rgba(26,21,18,0.12);
+    padding: 2px 8px;
+    border-radius: 2px;
+  }
+  .cta-body {
+    padding: 18px 20px;
+  }
+  .cta-line {
+    font-style: italic;
+    font-size: 15px;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+  .cta-rationale {
+    font-size: 13px;
+    color: var(--ink-muted);
+    line-height: 1.6;
+  }
+
+  /* ─── PLATFORM CARDS ─── */
+  .platform-card {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: var(--shadow-card);
+    height: 100%;
+  }
+  .platform-header {
+    background: var(--ink);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .platform-name {
+    color: var(--gold-pale);
+    font-size: 16px;
+  }
+  .platform-badge {
+    margin-left: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    background: rgba(201,168,108,0.12);
+    padding: 3px 8px;
+    border-radius: 2px;
+    border: 1px solid rgba(201,168,108,0.25);
+    text-transform: uppercase;
+  }
+  .platform-body {
+    padding: 18px 20px;
+  }
+  .spec-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13.5px;
+  }
+  .spec-row:last-child { border-bottom: none; }
+  .spec-key {
+    color: var(--ink-muted);
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .spec-val {
+    color: var(--ink);
+    font-size: 13.5px;
+    text-align: right;
+    max-width: 55%;
+  }
+
+  /* ─── PULL QUOTES ─── */
+  .pullquote {
+    border-left: 3px solid var(--gold);
+    padding: 14px 20px;
+    margin: 24px 0;
+    background: var(--cream-mid);
+    font-size: 16px;
+    font-style: italic;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
+  /* ─── DIVIDER ─── */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 32px 0;
+  }
+
+  /* ─── TAG ROW ─── */
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .tag {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    padding: 4px 10px;
+    border-radius: 2px;
+    border: 1px solid var(--border-strong);
+    color: var(--ink-muted);
+    background: var(--cream-mid);
+    text-transform: uppercase;
+  }
+  .tag-gold {
+    border-color: rgba(201,168,108,0.5);
+    color: var(--gold);
+    background: rgba(201,168,108,0.08);
+  }
+
+  /* ─── LIGHTING SPEC ─── */
+  .light-spec {
+    display: grid;
+    grid-template-columns: 32px 1fr 80px;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+    align-items: center;
+  }
+  .light-spec:last-child { border-bottom: none; }
+  .light-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin: 12px auto;
+  }
+  .light-body { padding: 12px 0; }
+  .light-name { font-size: 14px; color: var(--ink); }
+  .light-detail { font-size: 12px; color: var(--ink-muted); margin-top: 2px; }
+  .light-temp {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    color: var(--gold);
+    text-align: right;
+    padding-right: 4px;
+  }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    background: var(--ink);
+    color: rgba(245,237,216,0.4);
+    text-align: center;
+    padding: 32px 24px;
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-top: 80px;
+  }
+  .footer span {
+    color: var(--gold);
+  }
+
+  /* ─── MISC ─── */
+  .note {
+    background: rgba(201,168,108,0.08);
+    border: 1px solid rgba(201,168,108,0.2);
+    border-radius: 3px;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: var(--ink-muted);
+    line-height: 1.6;
+    margin-top: 16px;
+  }
+  .note strong { color: var(--gold); }
+  strong { color: var(--ink); }
+  em { color: var(--ink-muted); }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════
+     COVER
+════════════════════════════════════════════════════ -->
+<div class="cover">
+  <p class="cover-eyebrow">Crystal Told Me So · Director's Production Blueprint</p>
+  <h1 class="cover-title">Concept 5 — <em>The Adaptive<br>K-Beauty Foundation</em></h1>
+  <p class="cover-sub">Complete Director's Guide · 10 Sections · Elroel Chromatic Adaptive Foundation</p>
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <span class="cover-meta-label">Runtime</span>
+      <span class="cover-meta-value">35 seconds</span>
+    </div>
+    <div class="cover-meta-item">
+      <span class="cover-meta-label">Format</span>
+      <span class="cover-meta-value">9:16 Vertical</span>
+    </div>
+    <div class="cover-meta-item">
+      <span class="cover-meta-label">Scenes</span>
+      <span class="cover-meta-value">6 Scenes</span>
+    </div>
+    <div class="cover-meta-item">
+      <span class="cover-meta-label">Platform Lead</span>
+      <span class="cover-meta-value">Instagram Reels</span>
+    </div>
+    <div class="cover-meta-item">
+      <span class="cover-meta-label">Talent</span>
+      <span class="cover-meta-value">Crystal</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     DOCUMENT BODY
+════════════════════════════════════════════════════ -->
+<div class="document">
+
+
+<!-- ─────────────────────────────────────────────────
+     01 · ART DIRECTION & BACKGROUND
+──────────────────────────────────────────────────── -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">01</span>
+    <h2 class="section-title">Art Direction &amp; <em>Background</em></h2>
+  </div>
+
+  <div class="card">
+    <p class="card-title">Set Concept</p>
+    <p class="card-body">The frame should read as an elevated boutique dressing room — not a clinical lab, not a casual bedroom. Think early-morning luxury: warm light streaming from one direction, every surface chosen deliberately. The visual language signals that Crystal is an insider with access, not a reviewer chasing samples. The set must make the <em>product</em> feel discovered, not sold.</p>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <p class="card-title">Backdrop</p>
+      <ul class="detail-list">
+        <li><strong>Primary surface:</strong> Champagne silk or heavy cream-ivory linen, loosely draped with soft folds visible — no taut, wrinkle-free backdrop which reads cheap</li>
+        <li><strong>Fallback:</strong> Warm off-white limewash plaster wall or whitewashed brick, never a pure white seamless which will fight the product's cream packaging</li>
+        <li><strong>Avoid:</strong> Grey, cool-toned, or clinical white. This is luxury beauty, not pharma</li>
+        <li><strong>Background element:</strong> 1–2 dried white pampas stems or white ranunculus blooms slightly out of focus at f/1.8 — depth, not decoration</li>
+      </ul>
+    </div>
+    <div class="card">
+      <p class="card-title">Surface / Prop Styling</p>
+      <ul class="detail-list">
+        <li><strong>Primary surface:</strong> Polished white Carrara marble tile or slab — visible grey veining, sized approx. 30×40cm, products rest on this</li>
+        <li><strong>Product placement:</strong> Elroel foundation foreground-center, Western comparison piece (Sephora label clearly legible) slightly behind and to the right</li>
+        <li><strong>Reference element:</strong> One printed Korean beauty sheet or K-beauty journal page, partially visible, casually placed — signals research depth</li>
+        <li><strong>Negative space:</strong> Keep 60% of the marble clear — do not crowd</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="card-title">Lighting Setup — Full Spec</p>
+    <div class="light-spec">
+      <div class="light-dot" style="background:#FFF3C4;border:2px solid #E8C86A;"></div>
+      <div class="light-body">
+        <div class="light-name">Key Light — Large Softbox (90×90cm)</div>
+        <div class="light-detail">Camera-left, 45° horizontal, 30° downward angle. Primary source shaping Crystal's face. Creates a soft editorial shadow on the right cheek — the exact side where the product is first applied.</div>
+      </div>
+      <div class="light-temp">3,800K</div>
+    </div>
+    <div class="light-spec">
+      <div class="light-dot" style="background:#FFC97A;border:2px solid #C9833A;"></div>
+      <div class="light-body">
+        <div class="light-name">Rim Light — Small Gold-Reflective Panel</div>
+        <div class="light-detail">Camera-right, 135° behind talent. Low-power rim that catches the jawline and hair. Critical for the product-hold shot — the gold rim hits the Elroel bottle and creates a halo that reads as premium on camera.</div>
+      </div>
+      <div class="light-temp">4,200K</div>
+    </div>
+    <div class="light-spec">
+      <div class="light-dot" style="background:#FFF8EC;border:2px solid #D4B87A;"></div>
+      <div class="light-body">
+        <div class="light-name">Macro Fill — Small LED Panel (off-axis)</div>
+        <div class="light-detail">Positioned 20cm from the marble surface, pointed up at a low angle, for the close-up skin and hand shots only. This fills in shadow during macro work without introducing a competing catch light in the eye scenes. Power at 30% of key.</div>
+      </div>
+      <div class="light-temp">3,600K</div>
+    </div>
+    <div class="light-spec">
+      <div class="light-dot" style="background:#E8D5A3;border:2px solid #B89850;"></div>
+      <div class="light-body">
+        <div class="light-name">Bounce — V-Flat (cream/white side facing talent)</div>
+        <div class="light-detail">Camera-right, fills the shadow side of Crystal's face with a gentle wrap. The cream side warms the fill — a white bounce would make her look cold and the product would fight for warmth.</div>
+      </div>
+      <div class="light-temp">Passive</div>
+    </div>
+
+    <div class="note">
+      <strong>Golden Hour Sim note:</strong> If shooting without a large softbox, place Crystal 1.2m from a north-facing window at morning golden hour and supplement with a warm 3,500K LED panel on the opposite side. The natural rim from the window at low sun angle will be more cinematic than any artificial rim light.
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="card-title">Atmosphere</p>
+    <p class="card-body">No fog, no sparkle, no dramatic color gels. The atmosphere is <em>quiet luxury</em> — controlled and precise. Crystal is showing you something rare, and the set should feel like you've been allowed into a private moment. A single thin gold ring on the marble surface (Crystal's ring, placed casually) reinforces the personal, intimate quality of the investigation without being on-the-nose about it.</p>
+  </div>
+</div>
+
+
+<!-- ─────────────────────────────────────────────────
+     02 · AVATAR STYLING
+──────────────────────────────────────────────────── -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">02</span>
+    <h2 class="section-title">Avatar <em>Styling</em></h2>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <p class="card-title">Wardrobe</p>
+      <ul class="detail-list">
+        <li><strong>Option A (preferred):</strong> Monochrome cream or champagne silk blouse — loose, fluid, editorial. Slightly oversized in the shoulder. Reads luxury in close-up</li>
+        <li><strong>Option B:</strong> Black minimalist turtleneck if background reads too warm — the contrast snaps the skin tone into focus and gives the foundation test a cleaner visual baseline</li>
+        <li><strong>No logos, no bold prints</strong> — the product is the focal point, not the wardrobe</li>
+        <li><strong>Neckline:</strong> Wide or open enough that it doesn't compete with the product being held near chest height</li>
+        <li><strong>No layering</strong> — clean silhouette only. This is not a styling video</li>
+      </ul>
+    </div>
+    <div class="card">
+      <p class="card-title">Jewellery</p>
+      <ul class="detail-list">
+        <li><strong>Tone:</strong> Gold only — silver or mixed metal will conflict with the warm lighting and the gold-accented product packaging</li>
+        <li><strong>Earrings:</strong> Small simple hoops or minimal gold ear cuffs — nothing dangly that creates movement distraction in close-up dialogue shots</li>
+        <li><strong>Ring:</strong> Thin gold band, one finger only — the hand appears in the macro product application shot, so it must read elegant at macro range</li>
+        <li><strong>Necklace:</strong> Optional — if worn, a delicate gold chain that sits at the collarbone. Do not wear pendant necklaces that bob during speech</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <p class="card-title">Hair</p>
+      <ul class="detail-list">
+        <li><strong>Preferred:</strong> Effortless loose waves — not styled into perfect curls, not flat-ironed. The slight imperfection signals authenticity within the luxury frame</li>
+        <li><strong>Alternative:</strong> Sleek low bun for the macro skin shots — this keeps hair entirely off the face for clinical-quality close-up documentation</li>
+        <li><strong>Continuity note:</strong> If loose during dialogue, any hair close to the cheek must be tucked back or clipped for the cheek application macro shots. The skin must read clearly from hairline to jawline</li>
+        <li><strong>No updos, no high ponytails</strong> — they create stiffness that fights the intimate discovery tone</li>
+      </ul>
+    </div>
+    <div class="card">
+      <p class="card-title">Makeup (Intentional Contrast)</p>
+      <ul class="detail-list">
+        <li><strong>Foundation:</strong> None — bare skin, skincare-prepped, visibly textured with natural pores showing. This is the entire premise of the video. The viewer must see what they're about to see change</li>
+        <li><strong>Brows:</strong> Groomed and slightly filled but natural-looking — never drawn-on or laminated for this concept</li>
+        <li><strong>Eyes:</strong> Cream shimmer on lid, mascara only. No liner, no shadow — the eye must stay simple so it doesn't compete with the skin transformation story</li>
+        <li><strong>Lips:</strong> Nude to soft-pink gloss or tinted balm — nothing matte, nothing dark</li>
+        <li><strong>Nails:</strong> Almond or square, medium length, nude-to-soft-pink or sheer milky tones. The hand shot is macro — chipped or statement nails will be prominently distracting</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="pullquote">
+    The lack of foundation on Crystal's face at the start is not a raw, unpolished choice — it is the deliberate creative decision that makes the product's transformation legible and credible. Every other styling element must be immaculate to make this choice read as intentional rather than underprepared.
+  </div>
+</div>
+
+
+<!-- ─────────────────────────────────────────────────
+     03 · SCENE-BY-SCENE BREAKDOWN
+──────────────────────────────────────────────────── -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">03</span>
+    <h2 class="section-title">Scene-by-Scene <em>Breakdown</em></h2>
+  </div>
+
+  <!-- Scene 1 -->
+  <div class="scene">
+    <div class="scene-header">
+      <span class="scene-number">Scene 01</span>
+      <span class="scene-title">The Silent Transformation</span>
+      <span class="scene-tc">00:00 – 00:03</span>
+    </div>
+    <div class="scene-body">
+      <div class="scene-cols">
+        <div>
+          <span class="scene-col-label">Visual Direction</span>
+          <p class="scene-col-body">Extreme macro close-up. Crystal's bare cheek fills the entire frame — skin texture, pores, and natural flush fully visible. Her hand enters from the lower-right corner with a single pea-sized amount of white or pale cream product on one fingertip. One slow, deliberate stroke down the cheekbone. The product visibly transforms — shifting from white to her exact skin tone — in real time over 2–3 seconds. Camera is locked on a tripod, zero camera movement. The product does all the work.</p>
+          <p class="scene-col-body" style="margin-top:12px;">Crystal's eye is partially in frame, looking down at the application — not at the lens. This is an authentic application moment, not a performance for the camera.</p>
+        </div>
+        <div>
+          <span class="scene-col-label">Audio</span>
+          <p class="scene-col-body"><strong>Silence.</strong> No music, no voice, no ambient track. The only audio that may be present is the faint tactile sound of the product being applied to skin — captured with a close-on-set lapel or miniature mic. This silence is the pattern interrupt. Every other beauty reel has music. This has none.</p>
+
+          <span class="scene-col-label" style="margin-top:18px;">Text Overlay</span>
+          <p class="scene-col-body">None in this scene. The visual speaks independently and text would dilute the impact of the transformation moment. Let the skin and the pigment shift carry the entire three seconds.</p>
+
+          <div class="overlay-tag" style="margin-top:10px;opacity:0.4;text-decoration:line-through;font-size:9px;">NO TEXT THIS SCENE</div>
+        </div>
+      </div>
+
+      <div style="margin-top:20px;">
+        <span class="scene-col-label">Director's Note</span>
+        <p class="scene-col-body" style="color:var(--ink-muted);">Shoot this sequence 3–4 times on camera with identical lighting. The color transformation speed and legibility will vary with skin temperature — do the application after Crystal has been on set for 20+ minutes so her skin is at natural resting temperature. The shift should be visible within 2 seconds. If it's taking longer than 3, adjust the amount slightly. Do not speed-up or time-lapse this sequence in the edit — real-time transformation is the proof.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scene 2 -->
+  <div class="scene">
+    <div class="scene-header">
+      <span class="scene-number">Scene 02</span>
+      <span class="scene-title">The Discovery Reveal</span>
+      <span class="scene-tc">00:03 – 00:07</span>
+    </div>
+    <div class="scene-body">
+      <div class="scene-cols">
+        <div>
+          <span class="scene-col-label">Visual Direction</span>
+          <p class="scene-col-body">Cut to a medium shot from head to mid-chest as Crystal turns smoothly from the application to face the camera. The movement is fluid and unhurried — she's not startled, she's sharing. The Elroel foundation bottle rests at chest height in her left hand, slightly angled toward the lens so the Korean text on the packaging is legible. Her right hand is at her side or touching the marble surface. Expression: slight knowing smile, one eyebrow barely raised. The look of someone who has done their research and is now briefing you.</p>
+          <p class="scene-col-body" style="margin-top:10px;">Subtle slow zoom: the camera begins an almost imperceptible 2% push in toward Crystal's face, timed to land on "the West" at the end of her line.</p>
+        </div>
+        <div>
+          <span class="scene-col-label">Dialogue</span>
+          <div class="dialogue">
+            "This foundation has been sold in South Korea for two years. The West doesn't know it exists."
+            <span class="dialogue-attr">Crystal — Line 1 · Vol 70% · Tempo: Deliberate, slightly falling cadence at end of sentence</span>
+          </div>
+
+          <span class="scene-col-label" style="margin-top:18px;">Text Overlay</span>
+          <div style="margin-top:8px;">
+            <div class="overlay-tag">WEST DOESN'T KNOW THIS YET</div>
+          </div>
+          <p class="scene-col-body" style="margin-top:10px;font-size:13px;">Thin sans-serif (Helvetica Neue Light or equivalent), maximum 28px, white text, placed at upper third. Appears 0.5 seconds <em>after</em> Crystal begins speaking, not simultaneously. The slight lag makes it feel like emphasis rather than subtitle.</p>
+
+          <span class="scene-col-label" style="margin-top:14px;">Psychological Trigger</span>
+          <p class="scene-col-body" style="font-size:13px;color:var(--ink-muted);">Tribal status activation — "you are learning something your peers don't know." The viewer immediately recategorizes themselves from passive scroller to informed insider.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scene 3 -->
+  <div class="scene">
+    <div class="scene-header">
+      <span class="scene-number">Scene 03</span>
+      <span class="scene-title">The Price Confrontation</span>
+      <span class="scene-tc">00:07 – 00:14</span>
+    </div>
+    <div class="scene-body">
+      <div class="scene-cols">
+        <div>
+          <span class="scene-col-label">Visual Direction</span>
+          <p class="scene-col-body">Widen slightly to show the marble surface. Crystal reaches down with her free hand and places a Western foundation — Sephora Collection Skin Tint or NARS Natural Radiant, label forward — beside the Elroel. She picks up the Korean bottle and holds it higher while the Western one stays on the surface, establishing a deliberate visual hierarchy. Her gaze is direct, investigative. The product comparison is physically enacted in frame, not just discussed.</p>
+          <p class="scene-col-body" style="margin-top:10px;">Camera: no push this scene. Static medium shot. The stillness lets the dialogue and the physical product comparison carry all the energy.</p>
+        </div>
+        <div>
+          <span class="scene-col-label">Dialogue</span>
+          <div class="dialogue">
+            "$28. Compare that to the $68 Sephora equivalent. I read the formula sheet. They're not even in the same category."
+            <span class="dialogue-attr">Crystal — Line 2 · Vol 85% · Pitch rises on "$68," drops to measured authority on "I read the formula"</span>
+          </div>
+
+          <span class="scene-col-label" style="margin-top:18px;">Text Overlays</span>
+          <div style="margin-top:8px;">
+            <div class="overlay-tag">ELROEL · $28</div>
+            <div class="overlay-tag">SEPHORA EQUIV · $68</div>
+          </div>
+          <p class="scene-col-body" style="margin-top:10px;font-size:13px;">Price tags appear as clean minimal cards — white background, black text, thin gold border. Left-aligned under each respective product position in frame. The visual layout mirrors what the viewer sees in the comparative flat lay.</p>
+
+          <span class="scene-col-label" style="margin-top:14px;">Pacing Note</span>
+          <p class="scene-col-body" style="font-size:13px;color:var(--ink-muted);">"$28" delivered fast. Pause. "$68" slightly slower for emphasis. "I read the formula sheet" — deliberate, dropping in pitch. The pause between the prices forces the viewer to do the mental math before Crystal does it for them.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scene 4 -->
+  <div class="scene">
+    <div class="scene-header">
+      <span class="scene-number">Scene 04</span>
+      <span class="scene-title">The Science Proof</span>
+      <span class="scene-tc">00:14 – 00:22</span>
+    </div>
+    <div class="scene-body">
+      <div class="scene-cols">
+        <div>
+          <span class="scene-col-label">Visual Direction</span>
+          <p class="scene-col-body">Cut to a macro shot of the back of Crystal's hand. A small amount of the Elroel foundation is applied in real time — the camera captures the color adaptation at this angle as well, demonstrating the formula works on a secondary skin area and confirms it's not a trick of one shot. The application takes 4–5 seconds, filling the exact duration of the scientific explanation.</p>
+          <p class="scene-col-body" style="margin-top:10px;">Then cut back to medium shot for the Lancôme comparison and the whisper line. Crystal holds the product at chest height again, face forward, eyes directly on the lens at 100% eye-line contact for "in this bottle." The intimacy is maximum here — no looking away, no smile yet.</p>
+        </div>
+        <div>
+          <span class="scene-col-label">Dialogue</span>
+          <div class="dialogue">
+            "Adaptive chromatic pigments. They read your skin temperature and pH and they shift color to match. Lancôme has this technology in their $380 Teint Idole. <em>In this bottle.</em>"
+            <span class="dialogue-attr">Crystal — Lines 3 &amp; 4 · Even measured authority on the science, near-whisper on "In this bottle." Direct lens contact throughout</span>
+          </div>
+
+          <span class="scene-col-label" style="margin-top:18px;">Text Overlays</span>
+          <div style="margin-top:8px;">
+            <div class="overlay-tag">ADAPTIVE CHROMATIC PIGMENTS</div>
+            <div class="overlay-tag">pH + SKIN TEMP RESPONSE</div>
+            <div class="overlay-tag">LANCÔME · $380 ↔ ELROEL · $28</div>
+          </div>
+          <p class="scene-col-body" style="margin-top:10px;font-size:13px;">The price comparison overlay is the largest text element in the entire video. It appears for 3 seconds and then disappears <em>before</em> Crystal delivers "in this bottle" — so the whisper line has a clean frame with no competing text.</p>
+
+          <span class="scene-col-label" style="margin-top:14px;">The Whisper Beat</span>
+          <p class="scene-col-body" style="font-size:13px;color:var(--ink-muted);">This is the emotional peak of the entire reel. "In this bottle" is 3 words, delivered at approximately 50% volume — barely above a murmur — with a 0.3-second pause before the line begins. The music (which has come in by now at 15% volume) should drop to 8% here. The viewer leans in.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scene 5 -->
+  <div class="scene">
+    <div class="scene-header">
+      <span class="scene-number">Scene 05</span>
+      <span class="scene-title">The Visual Verdict</span>
+      <span class="scene-tc">00:22 – 00:28</span>
+    </div>
+    <div class="scene-body">
+      <div class="scene-cols">">
+        <div>
+          <span class="scene-col-label">Visual Direction</span>
+          <p class="scene-col-body">Medium shot, Crystal turned approximately 30° to camera-right so both cheeks are partially visible. The treated right cheek (Elroel applied) receives the key light. The untreated left cheek is slightly in shadow. She points gently to each cheek in sequence — right first, then left — with a single extended index finger. No dramatic gesture. The comparison is quiet and confident.</p>
+          <p class="scene-col-body" style="margin-top:10px;">This shot gives the viewer the visual proof they've been waiting for since the opening macro. The curiosity loop, opened in Scene 1, closes here. The 5% snap zoom kicks in at the start of this shot to inject a subtle burst of energy after the whisper intimacy of Scene 4.</p>
+        </div>
+        <div>
+          <span class="scene-col-label">Dialogue</span>
+          <div class="dialogue">
+            "Even coverage, lifted tone, and it has adapted completely to my exact skin tone. This side is bare. This side is the Elroel."
+            <span class="dialogue-attr">Crystal — Line 5 · Warm satisfaction building in voice. Slight smile. Half-measured staccato on benefits list, then softens for the comparison reveal</span>
+          </div>
+
+          <span class="scene-col-label" style="margin-top:18px;">Text Overlay</span>
+          <div style="margin-top:8px;">
+            <div class="overlay-tag">BEFORE</div>
+            <div class="overlay-tag">AFTER · ELROEL</div>
+          </div>
+          <p class="scene-col-body" style="margin-top:10px;font-size:13px;">BEFORE and AFTER labels placed in the lower third, left and right respectively, timed to when Crystal gestures to each cheek. Large enough to read instantly, but not so large they obscure the skin comparison itself.</p>
+
+          <span class="scene-col-label" style="margin-top:14px;">Verdict Text</span>
+          <p class="scene-col-body" style="font-size:13px;color:var(--ink-muted);">1 second into this scene: <span class="overlay-tag" style="font-size:9px;">VERDICT: FORMULA MATCH CONFIRMED</span> appears large and centered for 1.5 seconds. It's the most editorial text in the reel — this is Crystal's ruling, not a product claim.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scene 6 -->
+  <div class="scene">
+    <div class="scene-header">
+      <span class="scene-number">Scene 06</span>
+      <span class="scene-title">The Exclusive Close</span>
+      <span class="scene-tc">00:28 – 00:35</span>
+    </div>
+    <div class="scene-body">
+      <div class="scene-cols">
+        <div>
+          <span class="scene-col-label">Visual Direction</span>
+          <p class="scene-col-body">Crystal places the Elroel bottle back down on the marble surface with a deliberate, clean motion — not dropping, not tossing. She looks up and directly into the lens. Full smile now — warm, genuine, earned. The smile is the emotional release after the investigative build. She holds the eye line through the entire CTA delivery. Camera static. No more movement.</p>
+          <p class="scene-col-body" style="margin-top:10px;">End frame holds on Crystal's face for 1.5 seconds post-final-word before cut to black or the Crystal Told Me So brand signature card.</p>
+        </div>
+        <div>
+          <span class="scene-col-label">Dialogue</span>
+          <div class="dialogue">
+            "This isn't in Sephora yet. I found the link — it's in the caption. Save it before it arrives here and the price changes."
+            <span class="dialogue-attr">Crystal — Line 6 · Conspiratorial warmth. "yet" hangs at low volume. "Save it" direct and bright. Pause on "before it arrives here." Full smile throughout</span>
+          </div>
+
+          <span class="scene-col-label" style="margin-top:18px;">Text Overlays</span>
+          <div style="margin-top:8px;">
+            <div class="overlay-tag">NOT IN SEPHORA YET</div>
+            <div class="overlay-tag">SAVE THE LINK ↓ CAPTION</div>
+          </div>
+
+          <span class="scene-col-label" style="margin-top:14px;">Brand Signature</span>
+          <p class="scene-col-body" style="font-size:13px;color:var(--ink-muted);">Lower-third persistent watermark throughout Scene 6: "Crystal Told Me So" in thin serif, gold, 60% opacity. This is the brand close — reinforces the creator identity as the frame fades.</p>
+
+          <div class="tag-row" style="margin-top:14px;">
+            <span class="tag tag-gold">FOMO TRIGGER</span>
+            <span class="tag tag-gold">SAVE CTA</span>
+            <span class="tag tag-gold">SCARCITY FRAME</span>
+            <span class="tag">LOOP CLOSED</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ─────────────────────────────────────────────────
+     04 · VIRAL HOOK ENGINEERING
+──────────────────────────────────────────────────── -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">04</span>
+    <h2 class="section-title">Viral Hook <em>Engineering</em></h2>
+  </div>
+
+  <div class="card">
+    <p class="card-title">Primary Hook Mechanism — The Silent Color Shift</p>
+    <p class="card-body">The hook operates before a single word is spoken. A white cream visibly shifting to match skin tone in 2–3 seconds of silence is a <em>biological stop-signal</em> — human visual cortex is hardwired to detect color change as a potential threat or event of significance. The viewer cannot scroll past this without understanding what they saw.</p>
+    <p class="card-body" style="margin-top:10px;">The absence of music amplifies the pattern interrupt. Every other beauty reel on a user's feed uses trending audio or a music bed. The silence makes this feel like a private observation rather than a produced content piece — and that perceived authenticity is itself the hook.</p>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <p class="card-title">Hook Layer 1 — Visual Novelty</p>
+      <ul class="detail-list">
+        <li>White cream on brown skin adapting to exact skin tone in real time</li>
+        <li>Zero music — the sound environment is alien to platform norms</li>
+        <li>Extreme macro of skin texture at pore level — biological proximity triggers attention</li>
+        <li>No face visible — identity withheld, creates forward pull</li>
+        <li>No product label visible — identity withheld, creates forward pull</li>
+      </ul>
+    </div>
+    <div class="card">
+      <p class="card-title">Hook Layer 2 — Status Activation (3–7s)</p>
+      <ul class="detail-list">
+        <li>"The West doesn't know it exists" positions viewer as newly initiated insider</li>
+        <li>Tribal psychology: the group who knows vs. the group who doesn't</li>
+        <li>Korean origin + "two years on market" signals authenticity — this isn't a launch, it's a discovery</li>
+        <li>Crystal's tone is not excited — it's calm, which signals certainty rather than performance</li>
+        <li>The loop is open: <em>what is this?</em> The viewer must stay to close it</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <p class="card-title">Hook Layer 3 — Loss Aversion (7–14s)</p>
+      <ul class="detail-list">
+        <li>$28 vs $68 — every viewer calculates what they've paid before Crystal finishes the sentence</li>
+        <li>The comparison is not emotional or outraged — it's clinical, which makes it more credible</li>
+        <li>"I read the formula sheet" — Crystal has done the homework the viewer hasn't. This creates a knowledge gap the viewer now wants to close</li>
+        <li>Mental model invoked: "I have been overpaying." Loss aversion keeps 85% of viewers who might have scrolled</li>
+      </ul>
+    </div>
+    <div class="card">
+      <p class="card-title">Hook Layer 4 — Authority + Desire (14–22s)</p>
+      <ul class="detail-list">
+        <li>Lancôme Teint Idole ($380) comparison upgrades the product's perceived tier dramatically</li>
+        <li>Scientific terminology — "adaptive chromatic pigments," "pH," "skin temperature" — positions Crystal as technically literate, not just aesthetically opinionated</li>
+        <li>Whisper delivery of "in this bottle" creates an intimacy that forces emotional engagement</li>
+        <li>The viewer is now invested: they've heard the science, heard the price, and now they want visual proof</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="card-title">Hook Layer 5 — Visual Closure + FOMO (22–35s)</p>
+    <p class="card-body">The half-face comparison delivers the visual proof the viewer has been building toward since second one. The curiosity loop closes. But immediately, a new loop opens: scarcity. "Not in Sephora yet" reframes the viewer's position — they are now holding information that will soon be commoditized. The only way to preserve the advantage is to save the link, which serves as both the CTA and the final psychological trigger.</p>
+  </div>
+</div>
+
+
+<!-- ─────────────────────────────────────────────────
+     05 · RETENTION MAP
+──────────────────────────────────────────────────── -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">05</span>
+    <h2 class="section-title">Retention <em>Map</em></h2>
+  </div>
+
+  <div class="card" style="padding:0;overflow:hidden;">
+    <div class="retention-row header">
+      <div class="retention-cell">TC</div>
+      <div class="retention-cell">Scene</div>
+      <div class="retention-cell">Retention Driver</div>
+      <div class="retention-cell">Hook Type</div>
+    </div>
+    <div class="retention-row">
+      <div class="retention-cell" style="font-family:'Courier New',monospace;font-size:11px;color:var(--gold);">0–3s</div>
+      <div class="retention-cell" style="font-size:12px;">Silent Macro</div>
+      <div class="retention-cell">
+        <div class="bar-wrap">
+          <div class="bar" style="width:98%"></div>
+          <span class="bar-label">98%</span>
+        </div>
+        <div style="font-size:12px;color:var(--ink-muted);margin-top:4px;">Color-shift biological stop signal. Silence pattern interrupt. Curiosity loop opens.</div>
+      </div>
+      <div class="retention-cell"><span class="hook-tag hook-curiosity">CURIOSITY</span></div>
+    </div>
+    <div class="retention-row">
+      <div class="retention-cell" style="font-family:'Courier New',monospace;font-size:11px;color:var(--gold);">3–7s</div>
+      <div class="retention-cell" style="font-size:12px;">Discovery Reveal</div>
+      <div class="retention-cell">
+        <div class="bar-wrap">
+          <div class="bar" style="width:92%"></div>
+          <span class="bar-label">92%</span>
+        </div>
+        <div style="font-size:12px;color:var(--ink-muted);margin-top:4px;">Tribal insider activation. "West doesn't know" — viewer becomes the informed group. Identity hook.</div>
+      </div>
+      <div class="retention-cell"><span class="hook-tag hook-status">TRIBAL STATUS</span></div>
+    </div>
+    <div class="retention-row">
+      <div class="retention-cell" style="font-family:'Courier New',monospace;font-size:11px;color:var(--gold);">7–14s</div>
+      <div class="retention-cell" style="font-size:12px;">Price Confrontation</div>
+      <div class="retention-cell">
+        <div class="bar-wrap">
+          <div class="bar" style="width:88%"></div>
+          <span class="bar-label">88%</span>
+        </div>
+        <div style="font-size:12px;color:var(--ink-muted);margin-top:4px;">$28 vs $68 — loss aversion fires. "I've paid more." Viewer mentally commits to gathering the information.</div>
+      </div>
+      <div class="retention-cell"><span class="hook-tag hook-loss">LOSS AVERSION</span></div>
+    </div>
+    <div class="retention-row">
+      <div class="retention-cell" style="font-family:'Courier New',monospace;font-size:11px;color:var(--gold);">14–22s</div>
+      <div class="retention-cell" style="font-size:12px;">Science Proof</div>
+      <div class="retention-cell">
+        <div class="bar-wrap">
+          <div class="bar" style="width:81%"></div>
+          <span class="bar-label">81%</span>
+        </div>
+        <div style="font-size:12px;color:var(--ink-muted);margin-top:4px;">Lancôme $380 comparison elevates perceived product tier. Whisper intimacy creates parasocial peak. Authority anchored.</div>
+      </div>
+      <div class="retention-cell"><span class="hook-tag hook-authority">AUTHORITY</span></div>
+    </div>
+    <div class="retention-row">
+      <div class="retention-cell" style="font-family:'Courier New',monospace;font-size:11px;color:var(--gold);">22–28s</div>
+      <div class="retention-cell" style="font-size:12px;">Visual Verdict</div>
+      <div class="retention-cell">
+        <div class="bar-wrap">
+          <div class="bar" style="width:76%"></div>
+          <span class="bar-label">76%</span>
+        </div>
+        <div style="font-size:12px;color:var(--ink-muted);margin-top:4px;">Curiosity loop closes. Visual proof delivered. Before/after on single face. Leaving now means missing the verdict.</div>
+      </div>
+      <div class="retention-cell"><span class="hook-tag hook-proof">PROOF CLOSURE</span></div>
+    </div>
+    <div class="retention-row">
+      <div class="retention-cell" style="font-family:'Courier New',monospace;font-size:11px;color:var(--gold);">28–35s</div>
+      <div class="retention-cell" style="font-size:12px;">Exclusive Close</div>
+      <div class="retention-cell">
+        <div class="bar-wrap">
+          <div class="bar" style="width:71%"></div>
+          <span class="bar-label">71%</span>
+        </div>
+        <div style="font-size:12px;color:var(--ink-muted);margin-top:4px;">"Not in Sephora yet" — scarcity and time pressure. Save action replaces scroll instinct. FOMO activated.</div>
+      </div>
+      <div class="retention-cell"><span class="hook-tag hook-fomo">FOMO + CTA</span></div>
+    </div>
+  </div>
+
+  <div class="note" style="margin-top:16px;">
+    <strong>Platform benchmark:</strong> Instagram Reels average 30-second retention for beauty content sits at approximately 45–52%. A well-executed reel following this blueprint should target 68–72% at the 30-second mark based on the combined hook density. The first-3-second retention target is 95%+ — the silent macro combined with the color shift should achieve this across all feed contexts.
+  </div>
+</div>
+
+
+<!-- ─────────────────────────────────────────────────
+     06 · VOICE DIRECTION
+──────────────────────────────────────────────────── -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">06</span>
+    <h2 class="section-title">Voice <em>Direction</em></h2>
+  </div>
+
+  <div class="card" style="margin-bottom:20px;">
+    <p class="card-title">Overall Register</p>
+    <p class="card-body">Crystal's persona throughout this reel is <strong>the luxury beauty investigator</strong> — not a fan, not a promoter, not a reviewer. She has done the research and she is now briefing you on findings. The register is <em>measured authority with parasocial warmth</em>: the warmth of a trusted friend combined with the credibility of someone who read the formula sheet. Never excited. Never selling. Informing.</p>
+  </div>
+
+  <div class="card" style="padding:0;overflow:hidden;">
+    <div class="voice-row header">
+      <div class="voice-cell">#</div>
+      <div class="voice-cell">Line</div>
+      <div class="voice-cell">Delivery Notes</div>
+      <div class="voice-cell">Vol / Pace</div>
+    </div>
+
+    <div class="voice-row">
+      <div class="voice-cell"><span class="line-number">L1</span></div>
+      <div class="voice-cell">
+        <p class="voice-line">"This foundation has been sold in South Korea for two years. The West doesn't know it exists."</p>
+        <p class="voice-note">Opens the reel. Slight falling cadence at end — stated as fact, not offered as revelation. Eyes slightly soft. Eyebrow barely raised. This is the quietest confident line in the piece.</p>
+      </div>
+      <div class="voice-cell">
+        <span class="vol-pill">VOL · 70%</span>
+        <span class="pace-pill">Pace: deliberate</span>
+        <p class="voice-note" style="margin-top:6px;">Pitch falls gently on "exists" — this is not a question, not a revelation, it is a report</p>
+      </div>
+      <div class="voice-cell">
+        <div class="tag hook-status" style="font-size:9px;padding:3px 8px;display:inline-block;border-radius:2px;margin-bottom:4px;">Measured</div>
+      </div>
+    </div>
+
+    <div class="voice-row">
+      <div class="voice-cell"><span class="line-number">L2</span></div>
+      <div class="voice-cell">
+        <p class="voice-line">"$28. Compare that to the $68 Sephora equivalent. I read the formula sheet. They're not even in the same category."</p>
+        <p class="voice-note">"$28" hits fast and sharp. Half-beat pause. "$68" rises in pitch slightly — controlled outrage, not actual anger. "I read the formula sheet" drops back to flat authority. Final clause lands like a verdict.</p>
+      </div>
+      <div class="voice-cell">
+        <span class="vol-pill">VOL · 85%</span>
+        <span class="pace-pill">Pace: fast→slow</span>
+        <p class="voice-note" style="margin-top:6px;">Direct eye contact. Head very slightly tilted — investigative body language</p>
+      </div>
+      <div class="voice-cell">
+        <div class="tag hook-loss" style="font-size:9px;padding:3px 8px;display:inline-block;border-radius:2px;margin-bottom:4px;">Sharp</div>
+      </div>
+    </div>
+
+    <div class="voice-row">
+      <div class="voice-cell"><span class="line-number">L3</span></div>
+      <div class="voice-cell">
+        <p class="voice-line">"Adaptive chromatic pigments. They read your skin temperature and pH and they shift color to match."</p>
+        <p class="voice-note">Even, measured, educational. Luxury magazine narration register. The science should be delivered as fluently as if Crystal has explained it a hundred times — because it implies she has researched it thoroughly. No stumbling or rushing.</p>
+      </div>
+      <div class="voice-cell">
+        <span class="vol-pill">VOL · 80%</span>
+        <span class="pace-pill">Pace: steady, unhurried</span>
+        <p class="voice-note" style="margin-top:6px;">Neutral face. Investigator mode. No smile yet</p>
+      </div>
+      <div class="voice-cell">
+        <div class="tag hook-authority" style="font-size:9px;padding:3px 8px;display:inline-block;border-radius:2px;margin-bottom:4px;">Authority</div>
+      </div>
+    </div>
+
+    <div class="voice-row">
+      <div class="voice-cell"><span class="line-number">L4</span></div>
+      <div class="voice-cell">
+        <p class="voice-line">"Lancôme has this technology in their $380 Teint Idole. <em>In this bottle.</em>"</p>
+        <p class="voice-note">"Lancôme" and "$380" — factual, flat, comparative. 0.3-second pause before "In this bottle." Then near-whisper on those three words with a direct lens look. This is the emotional peak of the reel. The pause before it is mandatory — do not rush this transition.</p>
+      </div>
+      <div class="voice-cell">
+        <span class="vol-pill">VOL · 80% → 50%</span>
+        <span class="pace-pill">Pace: normal → slow</span>
+        <p class="voice-note" style="margin-top:6px;">Music drops to 8% volume here. The silence before the whisper is structural</p>
+      </div>
+      <div class="voice-cell">
+        <div class="tag" style="font-size:9px;padding:3px 8px;display:inline-block;border-radius:2px;margin-bottom:4px;background:rgba(26,21,18,0.08);color:var(--ink-muted);border:1px solid rgba(26,21,18,0.15);">Whisper Peak</div>
+      </div>
+    </div>
+
+    <div class="voice-row">
+      <div class="voice-cell"><span class="line-number">L5</span></div>
+      <div class="voice-cell">
+        <p class="voice-line">"Even coverage, lifted tone, and it has adapted completely to my exact skin tone. This side is bare. This side is the Elroel."</p>
+        <p class="voice-note">Benefits delivered as a light staccato list — each item gets its own beat and a slight pause after. Pace stretches on "adapted completely to my exact skin tone" — this is the main promise. Warm half-smile forming. Voice is rising toward satisfaction by the final clause.</p>
+      </div>
+      <div class="voice-cell">
+        <span class="vol-pill">VOL · 80%</span>
+        <span class="pace-pill">Pace: staccato → warm</span>
+        <p class="voice-note" style="margin-top:6px;">Smile is visible by the end of the line. Music returns to 25%</p>
+      </div>
+      <div class="voice-cell">
+        <div class="tag hook-proof" style="font-size:9px;padding:3px 8px;display:inline-block;border-radius:2px;margin-bottom:4px;">Proof Warm</div>
+      </div>
+    </div>
+
+    <div class="voice-row">
+      <div class="voice-cell"><span class="line-number">L6</span></div>
+      <div class="voice-cell">
+        <p class="voice-line">"This isn't in Sephora yet. I found the link — it's in the caption. Save it before it arrives here and the price changes."</p>
+        <p class="voice-note">"Yet" — hangs in the air slightly at lower volume. Full smile arrives on "I found the link." "Save it" delivered bright, direct, slightly brighter than the surrounding delivery. Pause on "before it arrives here." "The price changes" — small knowing smile. Conspiratorial warmth.</p>
+      </div>
+      <div class="voice-cell">
+        <span class="vol-pill">VOL · 85%</span>
+        <span class="pace-pill">Pace: deliberate, warm</span>
+        <p class="voice-note" style="margin-top:6px;">Full smile. Direct eye contact. The warmth earned through the preceding restraint pays off here</p>
+      </div>
+      <div class="voice-cell">
+        <div class="tag hook-fomo" style="font-size:9px;padding:3px 8px;display:inline-block;border-radius:2px;margin-bottom:4px;">Conspiratorial</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="note" style="margin-top:16px;">
+    <strong>Directing note for Crystal:</strong> The entire reel builds from measured factual delivery (Lines 1–3) through the whisper intimacy (Line 4) to a warm satisfied close (Lines 5–6). Do not front-load the warmth — it must be earned by the restraint of the opening. A smile in Line 1 undermines the investigator credibility the whole concept depends on.
+  </div>
+</div>
+
+
+<!-- ─────────────────────────────────────────────────
+     07 · VISUAL DETAILS
+──────────────────────────────────────────────────── -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">07</span>
+    <h2 class="section-title">Visual <em>Details</em></h2>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <p class="card-title">Camera Specifications</p>
+      <ul class="detail-list">
+        <li><strong>Format:</strong> 9:16 vertical, 4K capture (export as 1080×1920 for platform delivery)</li>
+        <li><strong>Frame Rate:</strong> 24fps for dialogue and beauty shots (cinematic feel); 60fps for the macro color-shift sequence (slow-motion option in post if needed, though real-time is preferred)</li>
+        <li><strong>Primary lens:</strong> 85mm f/1.4 or f/1.8 for dialogue medium shots — the shallow depth renders the background beautifully without distorting Crystal's face geometry</li>
+        <li><strong>Macro lens:</strong> 100mm f/2.8 macro for skin close-ups and hand application shots — this focal length avoids the distortion of shorter macros</li>
+        <li><strong>Shutter:</strong> 1/50 (24fps) — standard 180° rule. Do not use higher shutter speeds which introduce an unnatural clinical crispness</li>
+      </ul>
+    </div>
+    <div class="card">
+      <p class="card-title">Camera Movements — Full Schedule</p>
+      <ul class="detail-list">
+        <li><strong>Scene 1:</strong> Tripod locked. Zero movement. Macro lens static on skin. Any camera movement here reads as amateur and destroys the clinical proof quality</li>
+        <li><strong>Scene 2:</strong> Imperceptible 2% slow zoom push during dialogue — starts at cut-in, completes when Crystal finishes speaking. This push is <em>barely visible</em> — its effect is subliminal tension rather than visible motion</li>
+        <li><strong>Scene 3:</strong> Fully static. The product comparison physical gesture provides all the movement energy the scene needs</li>
+        <li><strong>Scene 4:</strong> Static on macro hand application. Static on medium shot for Lancôme comparison. Absolutely static on the whisper close — any movement here breaks the intimacy</li>
+        <li><strong>Scene 5:</strong> 5% snap zoom at the start of the cut (can be achieved in post with frame scale) — energy injection after the whisper quiet</li>
+        <li><strong>Scene 6:</strong> Fully static. The warmth of the close should feel grounded and still</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="card-title">Color Treatment &amp; Grade Notes</p>
+    <ul class="detail-list">
+      <li><strong>Overall grade direction:</strong> Warm and skin-forward. The tone should recall editorial beauty editorial photography from Italian Vogue or Harper's Bazaar — rich but not oversaturated, warm but with skin tones true to life</li>
+      <li><strong>Lift:</strong> Gentle shadow lift (reduce pure blacks to approximately 15–20 IRE) for a luxury film quality — hard shadows read as budget production</li>
+      <li><strong>Skin tone treatment:</strong> Critical — Crystal's skin must read as a neutral reference point before the Elroel application. Avoid green-casting the pre-application skin; it will undermine the transformation comparison</li>
+      <li><strong>Macro scenes:</strong> Slightly cooler grade on the skin macro close-ups to make the pore texture and color shift legible. Then the medium shot grades snap back to warm to maintain the luxury aesthetic</li>
+      <li><strong>Text overlays:</strong> Grade the text overlay frames slightly darker by 3% behind any overlay so the white text reads cleanly without adding explicit drop shadows that look cheap</li>
+      <li><strong>No grain, no vintage filter, no vignette</strong> — this is premium beauty investigative content, not lifestyle vlog</li>
+    </ul>
+  </div>
+</div>
+
+
+<!-- ─────────────────────────────────────────────────
+     08 · EDITING INSTRUCTIONS
+──────────────────────────────────────────────────── -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">08</span>
+    <h2 class="section-title">Editing <em>Instructions</em></h2>
+  </div>
+
+  <div class="timeline">
+    <div class="tl-event">
+      <span class="tl-tc">00:00</span>
+      <div class="tl-title">Open — Macro Cut-In</div>
+      <p class="tl-desc">First frame is the macro skin texture. No title card, no logo, no countdown. Immediate visual immersion. Silence begins. The 9:16 frame is filled entirely with skin and cream at this scale — there are no UI elements visible in the opening 3 seconds. Program the platform cover thumbnail to be taken from 00:01.5 — the moment the color shift is visually halfway complete.</p>
+    </div>
+    <div class="tl-event">
+      <span class="tl-tc">00:03</span>
+      <div class="tl-title">Hard Cut — Scene 1 → Scene 2</div>
+      <p class="tl-desc">Exact hard cut at the 3.0-second mark. No dissolve, no dip, no transition effect. The abruptness of the cut from macro skin to Crystal's face with the product held up is itself a micro-hook — the visual discontinuity triggers attention re-engagement. Music begins at this cut at 15% volume with a 0.4-second fade-in so it doesn't startle. Recommended track: Nils Frahm — Says (ambient version), Erik Satie — Gymnopédie No. 1, or a production track in the sparse piano / ambient neo-classical category. Nothing with drops, nothing trending.</p>
+    </div>
+    <div class="tl-event">
+      <span class="tl-tc">00:07</span>
+      <div class="tl-title">Hard Cut — Scene 2 → Scene 3 + Text In</div>
+      <p class="tl-desc">Hard cut to the product comparison medium shot. Price comparison text cards fade in over 0.3 seconds — they do not snap in. Text placement: ELROEL · $28 appears lower-left, SEPHORA · $68 appears lower-right, matching the physical product positions in frame. Text remains through 00:13, exiting with a 0.2-second fade-out before the Scene 4 cut.</p>
+    </div>
+    <div class="tl-event">
+      <span class="tl-tc">00:14</span>
+      <div class="tl-title">Hard Cut + Micro Zoom Push — Scene 3 → Scene 4 (Macro Hand)</div>
+      <p class="tl-desc">Hard cut to the macro hand application. Simultaneously, a programmatic 3% zoom push begins on the macro shot over 4 seconds — this is slow enough to be subliminal, fast enough to carry a sense of investigation and increasing proximity. Science terminology overlays appear here: "ADAPTIVE CHROMATIC PIGMENTS" upper third, "pH + SKIN TEMP RESPONSE" below it, both in thin uppercase sans-serif white, 20px equivalent. These stay visible for 5 seconds then exit before the whisper moment.</p>
+    </div>
+    <div class="tl-event">
+      <span class="tl-tc">00:19 (approx.)</span>
+      <div class="tl-title">Cut Back — Macro → Medium for Whisper Line</div>
+      <p class="tl-desc">Cut from hand macro back to medium shot of Crystal's face for the Lancôme comparison line and the whisper. Music ducks to 8% at the 0.3-second pause before "In this bottle." All text overlays must be clear of the frame for this line. The frame is Crystal's face and nothing else. After "In this bottle" lands, hold Crystal's face for 0.8 seconds before cutting to Scene 5.</p>
+    </div>
+    <div class="tl-event">
+      <span class="tl-tc">00:22</span>
+      <div class="tl-title">Hard Cut + 5% Snap Zoom — Scene 4 → Scene 5 (Verdict)</div>
+      <p class="tl-desc">Hard cut to the half-face medium shot. Apply a 5% frame scale push as a static hold — this is not a move in camera, it's a post-level scale effect that makes the cut feel more energized than the previous quiet intimacy. Music returns to 25–28% volume at this cut. BEFORE / AFTER text labels appear over respective cheeks 0.5 seconds into the scene. VERDICT text ("FORMULA MATCH CONFIRMED") appears centered, large, for 1.5 seconds at the 1-second mark of this scene then exits cleanly.</p>
+    </div>
+    <div class="tl-event">
+      <span class="tl-tc">00:28</span>
+      <div class="tl-title">0.2s Dissolve — Scene 5 → Scene 6 (Close)</div>
+      <p class="tl-desc">This is the only soft transition in the entire reel. The dissolve signals the shift from test/evidence phase to the warm personal close — it's the editorial equivalent of a closing paragraph's change in register. Crystal places the bottle down and this gesture naturally accommodates the gentle transition. Music holds at 25–28%. Brand signature watermark ("Crystal Told Me So") fades in in the lower third at 00:29 and holds through end of reel.</p>
+    </div>
+    <div class="tl-event">
+      <span class="tl-tc">00:35</span>
+      <div class="tl-title">End Frame → Cut to Black or Brand Card</div>
+      <p class="tl-desc">Hold Crystal's face for 1.5 seconds post-final-word. Then either: (A) Cut to clean black with "Crystal Told Me So" logotype in gold on black for 1 second, or (B) Loop-back freeze frame of the opening macro at 20% opacity as a bookend visual — this creates a satisfying compositional loop for viewers who rewatch, which signals quality to the algorithm. Option B is preferred if the platform allows a clean freeze frame end.</p>
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-top:24px;">
+    <div class="card">
+      <p class="card-title">Sound Design — Full Layer Stack</p>
+      <ul class="detail-list">
+        <li><strong>0–3s:</strong> Silence. Product application tactile sound only (faint), captured on-set with close lapel mic</li>
+        <li><strong>3s–end:</strong> Sparse piano / ambient track at 15% volume, 0.4s fade-in</li>
+        <li><strong>14–22s:</strong> Music at 20–25% under science explanation</li>
+        <li><strong>Whisper moment (approx 19–21s):</strong> Music ducks to 8%. Returns to 25% on Scene 5 cut</li>
+        <li><strong>Crystal's voiceover:</strong> Recorded clean with no reverb — this must sound like a direct intimate address, not a produced voice-over</li>
+        <li><strong>No sound effects, no whoosh transitions</strong></li>
+      </ul>
+    </div>
+    <div class="card">
+      <p class="card-title">Typography Spec</p>
+      <ul class="detail-list">
+        <li><strong>Primary font:</strong> Helvetica Neue Light or Inter Thin — maximum 28px for standard overlays, 36px for the VERDICT card</li>
+        <li><strong>Color:</strong> White (#FFFFFF) on all dark areas of frame. If text falls over light background, use the ink dark color with 70% opacity background scrim</li>
+        <li><strong>Tracking:</strong> +0.1em on all-caps text, normal on mixed case</li>
+        <li><strong>No bold weight except VERDICT</strong> — this is a luxury aesthetic, thin type reads premium</li>
+        <li><strong>No drop shadows</strong> — use frame composition to ensure legibility</li>
+        <li><strong>Brand signature:</strong> Thin serif (Garamond or Cormorant), gold color, lower third, 14px</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<!-- ─────────────────────────────────────────────────
+     09 · CTA OPTIMIZATION
+──────────────────────────────────────────────────── -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">09</span>
+    <h2 class="section-title">CTA <em>Optimization</em></h2>
+  </div>
+
+  <div class="grid-2">
+    <div class="cta-card">
+      <div class="cta-header">
+        <span class="cta-type">Save CTA — Primary</span>
+        <span class="cta-timing">On-screen at 28s</span>
+      </div>
+      <div class="cta-body">
+        <p class="cta-line">"Save this link before it hits Sephora and the price changes."</p>
+        <p class="cta-rationale">Framed as self-interest, not as a request to Crystal's benefit. The viewer saves because <em>they</em> need this information before it becomes commoditized. The word "Save" functions as both the CTA and the psychological action — saving preserves access to the advantage. Delivered warm and direct at 28s, after full value has been delivered.</p>
+      </div>
+    </div>
+    <div class="cta-card">
+      <div class="cta-header">
+        <span class="cta-type">Comment CTA — Engagement Seeder</span>
+        <span class="cta-timing">First comment, posted immediately</span>
+      </div>
+      <div class="cta-body">
+        <p class="cta-line">"What's your skin tone? Drop it below and I'll tell you how fast this adapts to you — it's different for everyone."</p>
+        <p class="cta-rationale">Guarantees high comment volume because every response is personal — the viewer is answering a question about themselves. Skin tone is a topic beauty audiences engage with deeply and authentically. "It's different for everyone" seeds curiosity about individual variation and signals Crystal has deep product knowledge beyond the video.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-top:16px;">
+    <div class="cta-card">
+      <div class="cta-header">
+        <span class="cta-type">Follow CTA — Reframed as Benefit</span>
+        <span class="cta-timing">Caption, line 3</span>
+      </div>
+      <div class="cta-body">
+        <p class="cta-line">"Stay here if you want to be the first to know when I find the next one."</p>
+        <p class="cta-rationale">Inverts the standard follow CTA. Instead of "follow me," this is "stay here <em>because</em> I will bring you more of this." The follow becomes a personal benefit — continued access to insider information — rather than a reciprocal social act. This framing converts higher because it activates self-interest rather than social obligation.</p>
+      </div>
+    </div>
+    <div class="cta-card">
+      <div class="cta-header">
+        <span class="cta-type">Share CTA — Optional Secondary</span>
+        <span class="cta-timing">Caption, line 4 (if used)</span>
+      </div>
+      <div class="cta-body">
+        <p class="cta-line">"Tag a friend who's been paying full Sephora price."</p>
+        <p class="cta-rationale">Activates the social dynamic of gifting knowledge to someone in your circle. The slight conspiratorial humor in "full Sephora price" reinforces the insider positioning without being hostile. Only use this CTA if the caption has room — never stack more than 3 CTAs in a reel's caption ecosystem as it creates decision paralysis.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px;">
+    <p class="card-title">CTA Architecture — Timing Principle</p>
+    <p class="card-body">All CTAs in the reel itself are held until after 28 seconds — the viewer receives full value before any ask is made. Early CTAs in beauty reels (<12 seconds) signal low confidence in content quality and train savvy audiences to tune out. Crystal's brand authority depends on the content earning the CTA rather than interrupting for it. The save action in the video close is the only in-video CTA: single, clear, simple.</p>
+    <div class="tag-row" style="margin-top:14px;">
+      <span class="tag">VALUE FIRST</span>
+      <span class="tag">SINGLE IN-VIDEO ASK</span>
+      <span class="tag">SELF-INTEREST FRAMING</span>
+      <span class="tag">NO EARLY CTA</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ─────────────────────────────────────────────────
+     10 · PLATFORM OPTIMIZATION
+──────────────────────────────────────────────────── -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">10</span>
+    <h2 class="section-title">Platform <em>Optimization</em></h2>
+  </div>
+
+  <div class="grid-2">
+    <div class="platform-card">
+      <div class="platform-header">
+        <span class="platform-name">Instagram Reels</span>
+        <span class="platform-badge">Primary Platform</span>
+      </div>
+      <div class="platform-body">
+        <div class="spec-row">
+          <span class="spec-key">Duration</span>
+          <span class="spec-val">35 seconds — optimal for this concept's science explanation depth</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Post Window</span>
+          <span class="spec-val">Tuesday / Wednesday, 6–9PM — peak beauty discovery engagement window</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Cover Frame</span>
+          <span class="spec-val">00:01.5 — color shift midpoint, most visually arresting single frame</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Caption Structure</span>
+          <span class="spec-val">3 lines: hook / science sentence / save CTA with tagged brand</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Hashtags</span>
+          <span class="spec-val">3–5 max. Over-tagging signals spam to current IG algorithm. #KBeauty #FoundationFinds #CrystalToldMeSo</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">First Comment</span>
+          <span class="spec-val">Post immediately after publish — seeds the skin tone question and adds keyword text for algorithm without crowding caption</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Collab Tag</span>
+          <span class="spec-val">Tag Elroel brand account if available — enables collab post which doubles distribution reach</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="platform-card">
+      <div class="platform-header">
+        <span class="platform-name">TikTok</span>
+        <span class="platform-badge">Secondary · 48h Delay</span>
+      </div>
+      <div class="platform-body">
+        <div class="spec-row">
+          <span class="spec-key">Posting Delay</span>
+          <span class="spec-val">48 hours after Instagram — both algorithms read as original fresh content</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Captions</span>
+          <span class="spec-val">Burn subtitles into the export — TikTok auto-captions misrender technical terms like "chromatic" and "pH"</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Opening Title Card</span>
+          <span class="spec-val">Add POV-style text overlay in Frame 1: "POV: You found this before it hits Western shelves" — TikTok audiences respond distinctly to POV framing</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Sound</span>
+          <span class="spec-val">Keep the original ambient piano track. Do not swap for trending audio — the content-forward silence hook is the differentiator</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Hashtags</span>
+          <span class="spec-val">#KBeautyFinds #BeautySecrets #FoundationHack #UnderratedBeauty #CrystalToldMeSo</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Duet / Stitch</span>
+          <span class="spec-val">Enable both — the science claim is specific enough that organic duet responses will generate secondary content</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px;">
+    <p class="card-title">Bilingual Strategy — Turkish / English</p>
+    <ul class="detail-list">
+      <li><strong>Subtitle approach:</strong> Overlay both languages simultaneously — Turkish above, English below — in the lower 20% of frame. Use slightly smaller font size than standard captions so both languages fit without crowding</li>
+      <li><strong>Cultural amplification:</strong> The Turkish-language audience adds a cultural layer to the K-beauty discovery frame — Crystal brings Korean beauty innovation to both English-speaking and Turkish-speaking communities simultaneously, which positions her as a global beauty connector rather than a single-market creator</li>
+      <li><strong>Caption duplicates:</strong> Post Turkish caption version as the first pinned comment on the Instagram version for Turkish-language audiences who click through to the profile</li>
+      <li><strong>Terminology:</strong> "Adaptif kromatik pigmentler" — keep the Turkish scientific terminology direct rather than using approximations; the precision reinforces Crystal's authority across both languages</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <p class="card-title">Caption Template</p>
+    <div class="dialogue" style="font-style:normal;font-family:'Courier New',monospace;font-size:12px;line-height:1.8;">
+      This K-beauty foundation has been adapting to skin in Korea for 2 years. The West just found out.<br>
+      <br>
+      Adaptive chromatic pigments — same tech as Lancôme Teint Idole ($380). This bottle: $28. Link in bio.<br>
+      <br>
+      Save this before it hits Sephora and doubles in price. ↓<br>
+      <br>
+      #KBeauty #CrystalToldMeSo #FoundationFinds #AdaptiveFoundation #KBeautySecrets
+    </div>
+    <p class="card-body" style="margin-top:12px;font-size:13px;color:var(--ink-muted);">The caption confirms what the reel claims without adding new information — it functions as a summary and a searchable keyword layer. The link placement ("bio") is stated explicitly so the algorithm reads purchase intent correctly for beauty commerce categorization.</p>
+  </div>
+
+  <div class="card">
+    <p class="card-title">Algorithm Signals This Reel Targets</p>
+    <div class="tag-row">
+      <span class="tag tag-gold">SAVE RATE</span>
+      <span class="tag tag-gold">REWATCH</span>
+      <span class="tag tag-gold">COMMENT ENGAGEMENT</span>
+      <span class="tag">SHARE (SECONDARY)</span>
+      <span class="tag">PROFILE VISIT</span>
+      <span class="tag">LINK CLICK</span>
+    </div>
+    <p class="card-body" style="margin-top:14px;font-size:13.5px;">The save rate is the primary optimization target. Beauty discovery content with a product link consistently outperforms on saves vs. standard engagement when the scarcity and pre-market framing is authentic. A 12–15% save rate on this concept is achievable based on comparable K-beauty discovery reels. Rewatch is the secondary target — the whisper beat and the before/after comparison both reward rewatching to confirm what the viewer thinks they heard and saw.</p>
+  </div>
+</div>
+
+</div><!-- /document -->
+
+
+<!-- ═══════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════════ -->
+<div class="footer">
+  <p><span>Crystal Told Me So</span> · Concept 5 · The Adaptive K-Beauty Foundation</p>
+  <p style="margin-top:8px;">Production Blueprint · Complete Director's Guide · All 10 Sections</p>
+  <p style="margin-top:8px;">Elroel Chromatic Adaptive Foundation · 35s · 9:16 Vertical · Instagram Reels Lead</p>
+</div>
+
+</body>
+</html>
