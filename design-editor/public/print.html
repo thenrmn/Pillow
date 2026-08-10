@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>print</title>
+<link rel="stylesheet" href="/fonts.css" />
+<style>
+  * { margin: 0; padding: 0; }
+  html, body { background: #fff; }
+  canvas { display: block; }
+  @page { margin: 0; }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<script src="/vendor/fabric.min.js"></script>
+<script>
+(async function () {
+  const params = new URLSearchParams(location.search);
+  const name = params.get("name");
+  window.__PRINT_READY__ = false;
+
+  try {
+    const res = await fetch("/api/designs/" + encodeURIComponent(name));
+    if (!res.ok) throw new Error("design not found");
+    const design = await res.json();
+    const { width, height } = design.meta;
+
+    document.documentElement.style.width = width + "px";
+    document.documentElement.style.height = height + "px";
+    document.body.style.width = width + "px";
+    document.body.style.height = height + "px";
+
+    const canvas = new fabric.StaticCanvas("c", { width, height });
+    canvas.loadFromJSON(design.fabric, function () {
+      canvas.renderAll();
+      const finish = () => { window.__PRINT_READY__ = true; };
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(finish).catch(finish);
+      } else {
+        finish();
+      }
+    });
+  } catch (err) {
+    document.body.textContent = "Failed to render design: " + err.message;
+    window.__PRINT_READY__ = true;
+  }
+})();
+</script>
+</body>
+</html>

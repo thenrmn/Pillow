@@ -1,0 +1,12 @@
+{
+  "colors": [
+    { "name": "Ink", "hex": "#1B1F2A" },
+    { "name": "Coral", "hex": "#FF6B5B" },
+    { "name": "Sand", "hex": "#F4E9DA" },
+    { "name": "Teal", "hex": "#2A9D8F" }
+  ],
+  "fonts": [
+    { "name": "Heading", "family": "Poppins" },
+    { "name": "Body", "family": "Inter" }
+  ]
+}
