@@ -1,0 +1,18 @@
+{
+  "name": "design-editor",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local canvas design editor (Fabric.js + Express). No accounts, no telemetry.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "postinstall": "node scripts/fetch-vendor.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "fabric": "^5.3.0"
+  },
+  "devDependencies": {
+    "playwright": "^1.47.0"
+  }
+}
